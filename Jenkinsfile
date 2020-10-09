@@ -34,6 +34,16 @@ pipeline {
 			steps{
 				sh "docker run --rm --volume \$(pwd) vickyrajagopal/python-taint-docker pyt ."
 			}
-		}					
+		}
+		stage ("sonar-publish"){
+			steps {
+				wisthSonarQubeEnv() {
+					echo "===========Performing Sonar Scan============"
+					def scannerHome = tool 'sonarqube';
+					sh "${scannerHome}/bin/sonar-scanner"
+				}
+			}
+		}
+		
 	}
 }
