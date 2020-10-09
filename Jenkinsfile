@@ -39,8 +39,7 @@ pipeline {
 			steps {
 				wisthSonarQubeEnv() {
 					echo "===========Performing Sonar Scan============"
-					def scannerHome = tool 'sonarqube';
-					sh "${scannerHome}/bin/sonar-scanner"
+					sh "${tool("sonarqube")}/bin/sonar-scanner"
 				}
 			}
 		}
