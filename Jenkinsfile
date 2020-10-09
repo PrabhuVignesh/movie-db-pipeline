@@ -37,10 +37,8 @@ pipeline {
 		}
 		stage ("sonar-publish"){
 			steps {
-				wisthSonarQubeEnv() {
-					echo "===========Performing Sonar Scan============"
-					sh "${tool("sonarqube")}/bin/sonar-scanner"
-				}
+				echo "===========Performing Sonar Scan============"
+				sh "${tool("sonarqube")}/bin/sonar-scanner"
 			}
 		}
 		
