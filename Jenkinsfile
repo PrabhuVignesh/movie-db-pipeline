@@ -21,9 +21,7 @@ pipeline {
 		}
 		stage ("Python Bandit Security Scan"){
 			steps{
-				sh 'pwd > workspace'
-				workspace = readFile('workspace').trim()
-				sh "docker run --rm --volume \$(pwd) --volume ${workspace}:/report secfigo/bandit:latest"
+				sh "docker run --rm --volume \$(pwd) --volume ${env.WORKSPACE}:/report secfigo/bandit:latest"
 				sh "ls"
 			}
 		}
