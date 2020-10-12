@@ -21,7 +21,6 @@ pipeline {
 		}
 		stage ("Python Bandit Security Scan"){
 			steps{
-				sh "mkdir ${env.WORKSPACE}/report"
 				sh "docker run --rm -v ${PWD}:/code opensorcery/bandit -r /code"
 				sh "ls"
 			}
