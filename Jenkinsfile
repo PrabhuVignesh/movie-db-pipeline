@@ -21,7 +21,7 @@ pipeline {
 		}
 		stage ("Python Bandit Security Scan"){
 			steps{
-				sh "docker run --rm -v ${env.WORKSPACE}:/code opensorcery/bandit --exit-zero -r /code -f json -o bandit_report.json"
+				sh "docker run --rm -v ${env.WORKSPACE}:/code opensorcery/bandit --exit-zero -f json -o bandit_report.json -r /code"
 				sh "ls"
 			}
 		}
