@@ -1,5 +1,3 @@
-def SRC_DIRECTORY=env.WORKSPACE
-def REPORT_DIRECTORY="$SRC_DIRECTORY/report"
 pipeline {
 	agent any
 	stages {
@@ -23,6 +21,8 @@ pipeline {
 		}
 		stage ("Python Bandit Security Scan"){
 			steps{
+				def SRC_DIRECTORY=env.WORKSPACE
+				def REPORT_DIRECTORY="$SRC_DIRECTORY/report"
 				sh "docker run --rm --volume \$(pwd) --volume ${REPORT_DIRECTORY}:/report secfigo/bandit:latest"
 				sh "ls"
 			}
