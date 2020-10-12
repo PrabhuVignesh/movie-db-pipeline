@@ -21,7 +21,7 @@ pipeline {
 		}
 		stage ("Python Bandit Security Scan"){
 			steps{
-				sh "docker run --rm --volume \$(pwd) --volume $(pwd):/report secfigo/bandit:latest"
+				sh "docker run --rm --volume $(pwd):/report secfigo/bandit:latest"
 			}
 		}
 		stage ("Dependency Check with Python Safety"){
