@@ -1,4 +1,4 @@
-def SRC_DIRECTORY="${workspace}"
+def SRC_DIRECTORY=env.WORKSPACE
 def REPORT_DIRECTORY="$SRC_DIRECTORY/report"
 pipeline {
 	agent any
