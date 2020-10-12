@@ -1,3 +1,5 @@
+def SRC_DIRECTORY="$(pwd)"
+def REPORT_DIRECTORY="$SRC_DIRECTORY/report"
 pipeline {
 	agent any
 	stages {
@@ -21,7 +23,8 @@ pipeline {
 		}
 		stage ("Python Bandit Security Scan"){
 			steps{
-				sh "docker run --rm --volume \$(pwd) --volume ${pwd}/report:/report secfigo/bandit:latest"
+				sh "docker run --rm --volume \$(pwd) secfigo/bandit:latest"
+				sh "ls"
 			}
 		}
 		stage ("Dependency Check with Python Safety"){
