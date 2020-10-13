@@ -21,7 +21,7 @@ pipeline {
 		}
 		stage ("Python Bandit Security Scan"){
 			steps{
-				sh "ls report"
+				sh "cat report/banditResult.json"
 				sh "sh run_bandit.sh"
 				sh "ls"
 			}
