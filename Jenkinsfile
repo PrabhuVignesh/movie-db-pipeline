@@ -22,7 +22,7 @@ pipeline {
 		stage ("Python Bandit Security Scan"){
 			steps{
 				sh "ls"
-				sh "run_bandit.sh"
+				sh "sh run_bandit.sh"
 				sh "ls"
 			}
 		}
