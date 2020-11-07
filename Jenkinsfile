@@ -46,7 +46,7 @@ pipeline {
 		stage ("Dynamic Analysis - DAST with OWASP ZAP") {
 			steps {
 				sshagent(["dast-machine"]) {
-					sh "ssh -o  StrictHostKeyChecking=no project@192.168.18.32 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://192.168.18.23:5000/' || true"
+					sh "ssh -o  StrictHostKeyChecking=no vagrant@192.168.18.32 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://192.168.18.23:5000/' || true"
 				}
 			}
 		
